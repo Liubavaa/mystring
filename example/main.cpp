@@ -418,9 +418,9 @@ void stream_operators_test() {
 
 }
 int main(){
-    std::cout<<"Конструктори класу:"<<std::endl;
+    std::cout<<"Class constructors:"<<std::endl;
     constructor_dem();
-    std::cout<<"Методи класу:"<<std::endl<<std::endl;
+    std::cout<<"Class methods:"<<std::endl<<std::endl;
     appropriation_swap_dem();
     by_index_dem();
     change_size_dem();
