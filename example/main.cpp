@@ -4,10 +4,23 @@
 
 void constructor_dem(){
     std::cout<<"The object can be created based on c-str:"<<std::endl;
-    my_str_t mystr_cs("Hello");
-    std::cout<<">>> my_str_t mystr_cs(\"Hello\")"<<std::endl;
+    const char *str = "Hello";
+    my_str_t mystr_cs(str);
+    std::cout<<">>> const char *str = \"Hello\";)"<<std::endl;
+    std::cout<<">>> my_str_t mystr_cs(str)"<<std::endl;
     std::cout<<">>> std::cout<< mystr_cs <<std::endl"<<std::endl;
     std::cout<<"Output: "<< mystr_cs << std::endl << std::endl;
+
+    str = nullptr;
+    std::cout<<">>> str = nullptr;"<<std::endl;
+    std::cout<<">>> my_str_t mystr_cs_null(str)"<<std::endl;
+    std::cout<<">>> std::cout<< mystr_cs <<std::endl"<<std::endl;
+    try {
+        my_str_t mystr_cs_null(str);
+    }
+    catch (const std::runtime_error &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
 
     std::cout<<"Based on c++ str:"<<std::endl;
     my_str_t mystr(std::string("World!"));
@@ -31,12 +44,20 @@ void constructor_dem(){
 void appropriation_swap_dem(){
     std::cout<<"The assignment operator:"<<std::endl;
     my_str_t mystr_cs("Hello");
+    my_str_t mystr_copy("");
     std::cout<<">>> my_str_t mystr_cs(\"Hello\")"<<std::endl;
-    my_str_t mystr_copy = mystr_cs;
-    std::cout<<">>> my_str_t mystr_copy = mystr_cs"<<std::endl;
+    std::cout<<">>> my_str_t mystr_copy(\"\")"<<std::endl;
+    mystr_copy = mystr_cs;
+    std::cout<<">>> mystr_copy = mystr_cs"<<std::endl;
     std::cout<<">>> std::cout<< mystr_cs <<std::endl"<<std::endl;
     std::cout<<">>> std::cout<< mystr_copy <<std::endl"<<std::endl;
-    std::cout<<"Output: "<<  std::endl << mystr_cs << std::endl<<mystr_cs << std::endl << std::endl;
+    std::cout<<"Output: "<<  std::endl << mystr_cs << std::endl<< mystr_copy << std::endl << std::endl;
+
+    std::cout<<"Assignment itself:"<<std::endl;
+    mystr_copy = mystr_copy;
+    std::cout<<">>> mystr_copy = mystr_copy"<<std::endl;
+    std::cout<<">>> std::cout<< mystr_copy <<std::endl"<<std::endl;
+    std::cout<<"Output: "<<  std::endl << mystr_copy << std::endl << std::endl;
 
     std::cout<<"The swap operator:"<<std::endl;
     std::cout<<">>> my_str_t mystr_cs(\"Hello\")"<<std::endl;
@@ -56,16 +77,48 @@ void by_index_dem(){
     std::cout<<">>> std::cout<< mystr_1[3] <<std::endl"<<std::endl;
     std::cout<<"Output: "<< mystr_1[3] <<std::endl << std::endl;
 
+    std::cout<<">>> std::cout<< mystr_1[8] <<std::endl"<<std::endl;
+    try {
+        mystr_1[8];
+    }
+    catch (const std::out_of_range &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
+
     std::cout<<">>> std::cout<< mystr_1.at(0) <<std::endl"<<std::endl;
     std::cout<<"Output: "<< mystr_1.at(0) <<std::endl << std::endl;
+
+    std::cout<<">>> std::cout<< mystr_1.at(7) <<std::endl"<<std::endl;
+    try {
+        mystr_1.at(7);
+    }
+    catch (const std::out_of_range &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
 
     my_str_t const mystr_2(std::string("World!"));
     std::cout<<">>> my_str_t const mystr_2(std::string(\"World!\"))"<<std::endl;
     std::cout<<">>> std::cout<< mystr_2[1] <<std::endl"<<std::endl;
     std::cout<<"Output: "<< mystr_2[1] <<std::endl<< std::endl;
 
+    std::cout<<">>> std::cout<< mystr_2[10] <<std::endl"<<std::endl;
+    try {
+        mystr_2[10];
+    }
+    catch (const std::out_of_range &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
+
     std::cout<<">>> std::cout<< mystr_2.at(5) <<std::endl"<<std::endl;
     std::cout<<"Output: "<< mystr_2.at(5) <<std::endl<< std::endl;
+
+    std::cout<<">>> std::cout<< mystr_2.at(20) <<std::endl"<<std::endl;
+    try {
+        mystr_2.at(20);
+    }
+    catch (const std::out_of_range &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
 }
 
 void change_size_dem(){
@@ -94,19 +147,25 @@ void change_size_dem(){
 
     std::cout<<"Method for changing real string size:"<<std::endl;
     std::cout<<">>> std::cout<< mystr_1 <<std::endl"<<std::endl;
-    std::cout<< "Output: "<< mystr_1 <<std::endl;
+    std::cout<< "Output: "<< mystr_1 <<std::endl <<std::endl;
 
     std::cout<<">>> mystr_1.resize(3)"<<std::endl;
     mystr_1.resize(3);
 
     std::cout<<">>> std::cout<< mystr_1.size()<< mystr_1 <<std::endl"<<std::endl;
-    std::cout<< "Output: "<< std::endl<< mystr_1.size()<< std::endl << mystr_1 <<std::endl;
+    std::cout<< "Output: "<< std::endl<< mystr_1.size()<< std::endl << mystr_1 <<std::endl <<std::endl;
 
     std::cout<<">>> mystr_1.resize(5, 'a')"<<std::endl;
     mystr_1.resize(5, 'a');
 
     std::cout<<">>> std::cout<< mystr_1.size()<< mystr_1 <<std::endl"<<std::endl;
-    std::cout<< "Output: "<< std::endl<< mystr_1.size()<< std::endl << mystr_1 <<std::endl;
+    std::cout<< "Output: "<< std::endl<< mystr_1.size()<< std::endl << mystr_1 <<std::endl <<std::endl;
+
+    std::cout<<">>> mystr_1.resize(30, 'a')"<<std::endl;
+    mystr_1.resize(30, 'a');
+
+    std::cout<<">>> std::cout<< mystr_1.size()<< mystr_1 <<std::endl"<<std::endl;
+    std::cout<< "Output: "<< std::endl<< mystr_1.size()<< std::endl << mystr_1 <<std::endl <<std::endl;
 
     std::cout<<"Clear method:"<<std::endl;
     std::cout<<">>> mystr_1.clear()"<<std::endl;
@@ -134,13 +193,42 @@ void insert_dem(){
     mystr_1.insert(14, mystr_2);
 
     std::cout<<">>> std::cout<< mystr_1 <<std::endl"<<std::endl;
-    std::cout<< "Output: "<<  mystr_1 <<std::endl <<std::endl;
+    std::cout<< "Output: "<<  mystr_1 << std::endl <<std::endl;
 
     std::cout<<">>> mystr_1.insert(8, 'C')"<<std::endl;
     mystr_1.insert(14, 'C');
 
     std::cout<<">>> std::cout<< mystr_1 <<std::endl"<<std::endl;
-    std::cout<< "Output: "<<  mystr_1 <<std::endl <<std::endl;
+    std::cout<< "Output: "<<  mystr_1 << std::endl <<std::endl;
+
+    my_str_t mystr_3(15, 'a');
+    mystr_3.insert(1, 'a');
+    std::cout<<">>> my_str_t mystr_3(15, 'a')"<<std::endl;
+    std::cout<<">>> mystr_3.insert(1, 'a')"<<std::endl<<std::endl;
+
+    std::cout<<">>> mystr_1.insert(50, \"aba\")"<<std::endl;
+    try {
+        mystr_1.insert(50, "aba");
+    }
+    catch (const std::out_of_range &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
+
+    std::cout<<">>> mystr_1.insert(50, \'a\')"<<std::endl;
+    try {
+        mystr_1.insert(50, 'a');
+    }
+    catch (const std::out_of_range &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
+
+    std::cout<<">>> mystr_1.insert(50, mystr_2)"<<std::endl;
+    try {
+        mystr_1.insert(50, mystr_2);
+    }
+    catch (const std::out_of_range &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
 }
 
 void append_dem(){
@@ -154,7 +242,7 @@ void append_dem(){
     std::cout<<">>> std::cout<< mystr_1 <<std::endl"<<std::endl;
     std::cout<< "Output: "<<  mystr_1 <<std::endl <<std::endl;
 
-    std::cout<<">>> mystr_1.insert(14, std::string(\"Sharp and \"))"<<std::endl;
+    std::cout<<">>> mystr_1.append(std::string(\" and Python\"))"<<std::endl;
     mystr_1.append(std::string(" and Python"));
 
     std::cout<<">>> std::cout<< mystr_1 <<std::endl"<<std::endl;
@@ -165,6 +253,11 @@ void append_dem(){
 
     std::cout<<">>> std::cout<< mystr_1 <<std::endl"<<std::endl;
     std::cout<< "Output: "<<  mystr_1 <<std::endl <<std::endl;
+
+    my_str_t mystr_3(15, 'a');
+    mystr_3.append('a');
+    std::cout<<">>> my_str_t mystr_3(15, 'a')"<<std::endl;
+    std::cout<<">>> mystr_3.append('a')"<<std::endl<<std::endl;
 }
 
 void erase_dem(){
@@ -174,6 +267,20 @@ void erase_dem(){
 
     std::cout<<">>> mystr.erase(8, 3)"<<std::endl;
     mystr.erase(8, 4);
+
+    std::cout<<">>> std::cout<< mystr <<std::endl"<<std::endl;
+    std::cout<< "Output: "<<  mystr <<std::endl <<std::endl;
+
+    std::cout<<">>> mystr.erase(20, 3)"<<std::endl;
+    try {
+        mystr.erase(20, 4);
+    }
+    catch (const std::out_of_range &a) {
+        std::cout <<"Output: "<< a.what() << std::endl << std::endl;
+    }
+
+    std::cout<<">>> mystr.erase(10, 20)"<<std::endl;
+    mystr.erase(10, 20);
 
     std::cout<<">>> std::cout<< mystr <<std::endl"<<std::endl;
     std::cout<< "Output: "<<  mystr <<std::endl <<std::endl;
@@ -213,8 +320,8 @@ void find_str_demonstration() {
     std::cout << "Find string method with char" << std::endl;
     std::cout << "my_str_t str(\"Hello\");" << std::endl;
     my_str_t str1("Hello");
-    std::cout << "str.find(\"e\", 3)" << std::endl;
-    std::cout << "Output: " << str1.find("e", 3) << std::endl;
+    std::cout << "str.find(\"e\")" << std::endl;
+    std::cout << "Output: " << str1.find("e") << std::endl;
 
     std::cout << "\n" << std::endl;
 
@@ -222,7 +329,7 @@ void find_str_demonstration() {
     std::cout << "my_str_t str(\"Hello world!\");" << std::endl;
     my_str_t str2("Hello world");
     std::cout << "str.find(\"world\")" << std::endl;
-    std::cout << "Output: " << str2.find("world", 0) << std::endl;
+    std::cout << "Output: " << str2.find("world") << std::endl;
 
     std::cout << "\n" << std::endl;
 
@@ -232,7 +339,7 @@ void find_str_demonstration() {
     std::cout << "const char *cstr = \"abs\";" << std::endl;
     const char *cstr = "abs";
     std::cout << "str.find(\"world\")" << std::endl;
-    std::cout << "Output: " << str3.find(cstr, 8) << std::endl;
+    std::cout << "Output: " << str3.find(cstr) << std::endl;
 }
 
 void operators_demonstration_references() {
@@ -415,8 +522,8 @@ void stream_operators_test() {
     readline(stream3, word3);
     std::cout << "std::cout << word2;" << std::endl;
     std::cout << word3;
-
 }
+
 int main(){
     std::cout<<"Class constructors:"<<std::endl;
     constructor_dem();
