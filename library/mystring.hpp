@@ -7,9 +7,9 @@
 
 class my_str_t{
 private :
-    char* data_m {nullptr};
-    size_t capacity_m;
     size_t size_m;
+    size_t capacity_m;
+    char* data_m {nullptr};
 public :
     my_str_t(size_t size, char initial);
     my_str_t(const char* cstr );
@@ -40,9 +40,9 @@ public :
     my_str_t& operator+=(const my_str_t& mystr);
     my_str_t& operator*=(size_t size);
     static constexpr size_t not_found = -1;
-    size_t find(char c, size_t idx);
-    size_t find(const std::string& str, size_t idx);
-    size_t find(const char *cstr, size_t idx);
+    size_t find(char c, size_t idx=0);
+    size_t find(const std::string& str, size_t idx=0);
+    size_t find(const char *cstr, size_t idx=0);
     my_str_t substr(size_t begin , size_t size);
     ~my_str_t();
 };
