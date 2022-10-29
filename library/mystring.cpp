@@ -6,7 +6,7 @@ my_str_t::my_str_t(size_t size, char initial) {
     size_m = size;
     set_capacity();
     data_m = new char[capacity_m+1];
-    for (int i = 0; i<size_m; ++i) {
+    for (size_t i = 0; i<size_m; ++i) {
         *(data_m + i) = initial;
     }
     *(data_m + size_m) = '\0';
@@ -18,7 +18,7 @@ my_str_t::my_str_t(const char* cstr ) {
     size_m = size;
     set_capacity();
     data_m = new char[capacity_m+1];
-    for (int i = 0; i<size_m; i++)
+    for (size_t i = 0; i<size_m; i++)
         *(data_m + i) = *(cstr + i);
     *(data_m + size_m) = '\0';
 }
@@ -39,7 +39,7 @@ my_str_t::my_str_t(const std :: string& str ):size_m {str.size()} {
     set_capacity();
     data_m = new char[capacity_m+1];
 
-    for (int i = 0; i < size_m; i++)
+    for (size_t i = 0; i < size_m; i++)
         *(data_m + i) = str[i];
     *(data_m + size_m) = '\0';
 }
@@ -64,7 +64,6 @@ my_str_t& my_str_t::operator=(const my_str_t& mystr){
     //made by Oleksiuk
     if (&mystr == this)
         return *this;
-
     my_str_t temp(mystr);
     this->swap(temp);
     return *this ;
