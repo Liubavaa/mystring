@@ -309,7 +309,7 @@ size_t my_str_t::find(const std::string& str, size_t idx){ //Konopada Oleksii
             res = i;
             flag = true;
         }
-        else if (*(data_m + i) == str[j] && flag == true) {
+        else if (*(data_m + i) == str[j] && flag) {
             ++j;
         }
         else if (*(data_m + i) != str[j]) {
@@ -338,7 +338,7 @@ size_t my_str_t::find(const char *cstr, size_t idx){ //Konopada Oleksii
             res = i;
             flag = true;
         }
-        else if (*(data_m + i) == *(cstr + j) && flag == true) {
+        else if (*(data_m + i) == *(cstr + j) && flag) {
             ++j;
         }
         else if (*(data_m + i) != *(cstr + j)) {
