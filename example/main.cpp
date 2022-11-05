@@ -349,13 +349,29 @@ void operators_demonstration_references() {
     my_str_t hello = "hello";
     std::cout << "my_str_t not_hello = \"not_hello\";" << std::endl;
     my_str_t not_hello = "not_hello";
+    my_str_t word = "hellz";
+    my_str_t word2 = "heads";
 
     std::cout << "\n" << std::endl;
 
     std::cout << "bool equal_res = hello == not_hello" << std::endl;
     std::cout << "std::cout << equal_res" << std::endl;
-    bool equal_res = hello == not_hello;
-    std::cout << "Outcome: " << equal_res << std::endl;
+    bool equal_res1 = hello == not_hello;
+    std::cout << "Outcome: " << equal_res1 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool equal_res = hello == hello" << std::endl;
+    std::cout << "std::cout << equal_res" << std::endl;
+    bool equal_res2 = hello == hello;
+    std::cout << "Outcome: " << equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool equal_res = hello == word" << std::endl;
+    std::cout << "std::cout << equal_res" << std::endl;
+    bool equal_res3 = hello == word;
+    std::cout << "Outcome: " << equal_res3 << std::endl;
 
     std::cout << "\n" << std::endl;
 
@@ -363,6 +379,11 @@ void operators_demonstration_references() {
     std::cout << "std::cout << not_equal_res" << std::endl;
     bool not_equal_res = hello != not_hello;
     std::cout << "Outcome: " << not_equal_res << std::endl;
+
+    std::cout << "bool not_equal_res = hello != hello" << std::endl;
+    std::cout << "std::cout << not_equal_res" << std::endl;
+    bool not_equal_res2 = hello != hello;
+    std::cout << "Outcome: " << not_equal_res2 << std::endl;
 
     std::cout << "\n" << std::endl;
 
@@ -373,10 +394,38 @@ void operators_demonstration_references() {
 
     std::cout << "\n" << std::endl;
 
+    std::cout << "bool more_res = hello > not_hello" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res2 = not_hello > hello;
+    std::cout << "Outcome: " << more_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello > heads" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res3 = hello > word;
+    std::cout << "Outcome: " << more_res3 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello > hellz" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res4 = hello > word2;
+    std::cout << "Outcome: " << more_res4 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
     std::cout << "bool more_equal_res = hello >= not_hello" << std::endl;
     std::cout << "std::cout << more_equal_res" << std::endl;
     bool more_equal_res = hello >= not_hello;
     std::cout << "Outcome: " << more_equal_res << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_equal_res = not_hello >= hello" << std::endl;
+    std::cout << "std::cout << more_equal_res" << std::endl;
+    bool more_equal_res2 = not_hello >= hello;
+    std::cout << "Outcome: " << more_equal_res2 << std::endl;
 
     std::cout << "\n" << std::endl;
 
@@ -387,10 +436,24 @@ void operators_demonstration_references() {
 
     std::cout << "\n" << std::endl;
 
+    std::cout << "bool less_res = not_hello < hello" << std::endl;
+    std::cout << "std::cout << less_res" << std::endl;
+    bool less_res2 = not_hello < hello;
+    std::cout << "Outcome: " << less_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
     std::cout << "bool less_equal_res = hello <= not_hello" << std::endl;
     std::cout << "std::cout << less_equal_res" << std::endl;
     bool less_equal_res = hello <= not_hello;
     std::cout << "Outcome: " << less_equal_res << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool less_equal_res = not_hello <= hello" << std::endl;
+    std::cout << "std::cout << less_equal_res" << std::endl;
+    bool less_equal_res2 = not_hello <= hello;
+    std::cout << "Outcome: " << less_equal_res2 << std::endl;
 }
 
 void operators_demonstration_first_c() {
@@ -400,48 +463,288 @@ void operators_demonstration_first_c() {
     my_str_t hello("hello");
     std::cout << "my_str_t not_hello = \"not_hello\";" << std::endl;
     my_str_t not_hello = "not_hello";
+    my_str_t word = "heads";
+    my_str_t word2 = "hellz";
 
     std::cout << "\n" << std::endl;
 
-    std::cout << "bool equal_res = hello == not_hello" << std::endl;
+    std::cout << "bool equal_res = hello == hello_cstring" << std::endl;
     std::cout << "std::cout << equal_res" << std::endl;
-    bool equal_res = hello == not_hello;
+    bool equal_res = hello == hello.c_str();
     std::cout << "Outcome: " << equal_res << std::endl;
 
     std::cout << "\n" << std::endl;
 
-    std::cout << "bool not_equal_res = hello != not_hello" << std::endl;
+    std::cout << "bool equal_res = hello == not_hello_cstring" << std::endl;
+    std::cout << "std::cout << equal_res" << std::endl;
+    bool equal_res2 = hello == not_hello.c_str();
+    std::cout << "Outcome: " << equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool equal_res = hello == word_cstring" << std::endl;
+    std::cout << "std::cout << equal_res" << std::endl;
+    bool equal_res3 = hello == word.c_str();
+    std::cout << "Outcome: " << equal_res3 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool not_equal_res = hello != hello_cstring" << std::endl;
     std::cout << "std::cout << not_equal_res" << std::endl;
-    bool not_equal_res = hello != not_hello;
+    bool not_equal_res = hello != hello.c_str();
     std::cout << "Outcome: " << not_equal_res << std::endl;
 
     std::cout << "\n" << std::endl;
 
-    std::cout << "bool more_res = hello > not_hello" << std::endl;
+    std::cout << "bool not_equal_res = hello != not_hello_cstring" << std::endl;
+    std::cout << "std::cout << not_equal_res" << std::endl;
+    bool not_equal_res2 = hello != not_hello.c_str();
+    std::cout << "Outcome: " << not_equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello > not_hello_cstring" << std::endl;
     std::cout << "std::cout << more_res" << std::endl;
-    bool more_res = hello > not_hello;
+    bool more_res = hello > not_hello.c_str();
     std::cout << "Outcome: " << more_res << std::endl;
 
     std::cout << "\n" << std::endl;
 
-    std::cout << "bool more_equal_res = hello >= not_hello" << std::endl;
-    std::cout << "std::cout << more_equal_res" << std::endl;
-    bool more_equal_res = hello >= not_hello;
-    std::cout << "Outcome: " << more_equal_res << std::endl;
+    std::cout << "bool more_res = not_hello > hello_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res5 = not_hello > hello.c_str();
+    std::cout << "Outcome: " << more_res5 << std::endl;
 
     std::cout << "\n" << std::endl;
 
-    std::cout << "bool less_res = hello < not_hello" << std::endl;
+    std::cout << "bool more_res = hello > hello_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res6 = hello > hello.c_str();
+    std::cout << "Outcome: " << more_res6 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello > word_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res7 = hello > word.c_str();
+    std::cout << "Outcome: " << more_res7 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello > word2_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res8 = hello > word2.c_str();
+    std::cout << "Outcome: " << more_res8 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello >= hello_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res1 = hello >= hello.c_str();
+    std::cout << "Outcome: " << more_equal_res1 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello >= word_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res2 = hello >= word.c_str();
+    std::cout << "Outcome: " << more_equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello >= word2_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res3 = hello >= word2.c_str();
+    std::cout << "Outcome: " << more_equal_res3 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello >= not_hello_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res4 = hello >= not_hello.c_str();
+    std::cout << "Outcome: " << more_equal_res4 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = not_hello >= hello_cstring" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res5 = not_hello >= hello.c_str();
+    std::cout << "Outcome: " << more_equal_res5 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool less_res = hello < not_hello.cstring" << std::endl;
     std::cout << "std::cout << less_res" << std::endl;
-    bool less_res = hello < not_hello;
+    bool less_res = hello < not_hello.c_str();
     std::cout << "Outcome: " << less_res << std::endl;
 
     std::cout << "\n" << std::endl;
 
-    std::cout << "bool less_equal_res = hello <= not_hello" << std::endl;
+    std::cout << "bool less_equal_res = not_hello <= hello_cstring" << std::endl;
     std::cout << "std::cout << less_equal_res" << std::endl;
-    bool less_equal_res = hello <= not_hello;
+    bool less_equal_res = not_hello <= hello.c_str();
     std::cout << "Outcome: " << less_equal_res << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool less_res = hello <= not_hello.cstring" << std::endl;
+    std::cout << "std::cout << less_res" << std::endl;
+    bool less_equal_res2 = hello <= not_hello.c_str();
+    std::cout << "Outcome: " << less_equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool less_equal_res = not_hello < hello_cstring" << std::endl;
+    std::cout << "std::cout << less_equal_res" << std::endl;
+    bool less_res2 = not_hello < hello.c_str();
+    std::cout << "Outcome: " << less_res2 << std::endl;
+}
+
+void operators_demonstration_second_c() {
+    std::cout << "Operators demonstration" << std::endl;
+    std::cout << "Using references" << std::endl;
+    std::cout << "my_str_t hello = \"hello\";" << std::endl;
+    my_str_t hello = "hello";
+    std::cout << "my_str_t not_hello(\"not_hello\");" << std::endl;
+    my_str_t not_hello("not_hello");
+    my_str_t word = "hellz";
+    my_str_t word2 = "heads";
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool equal_res = hello_cstring == hello" << std::endl;
+    std::cout << "std::cout << equal_res" << std::endl;
+    bool equal_res = hello.c_str() == hello;
+    std::cout << "Outcome: " << equal_res << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool equal_res = not_hello_cstring == hello" << std::endl;
+    std::cout << "std::cout << equal_res" << std::endl;
+    bool equal_res2 = not_hello.c_str() == hello;
+    std::cout << "Outcome: " << equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool equal_res = word_cstring == hello " << std::endl;
+    std::cout << "std::cout << equal_res" << std::endl;
+    bool equal_res3 = word.c_str() == hello ;
+    std::cout << "Outcome: " << equal_res3 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool not_equal_res = hello_cstring != hello" << std::endl;
+    std::cout << "std::cout << not_equal_res" << std::endl;
+    bool not_equal_res = hello.c_str() != hello;
+    std::cout << "Outcome: " << not_equal_res << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool not_equal_res = not_hello_cstring != hello" << std::endl;
+    std::cout << "std::cout << not_equal_res" << std::endl;
+    bool not_equal_res2 = not_hello.c_str() != hello;
+    std::cout << "Outcome: " << not_equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello_cstring > not_hello" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res = hello.c_str() > not_hello;
+    std::cout << "Outcome: " << more_res << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = not_hello_cstring > hello" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res2 = not_hello.c_str() > hello;
+    std::cout << "Outcome: " << more_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello_cstring > hello" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res3 = hello.c_str() > hello;
+    std::cout << "Outcome: " << more_res3 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello.c_str() > word" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res4 = hello.c_str() > word;
+    std::cout << "Outcome: " << more_res4 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello.c_str() > word2" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_res5 = hello.c_str() > word2;
+    std::cout << "Outcome: " << more_res5 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello.c_str() >= hello;" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res1 = hello.c_str() >= hello;
+    std::cout << "Outcome: " << more_equal_res1 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello.c_str() >= word;" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res2 = hello.c_str() >= word;
+    std::cout << "Outcome: " << more_equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello.c_str() >= word2" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res3 = hello.c_str() >= word2;
+    std::cout << "Outcome: " << more_equal_res3 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = hello.c_str() >= not_hello" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res4 = hello.c_str() >= not_hello;
+    std::cout << "Outcome: " << more_equal_res4 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool more_res = not_hello.c_str() >= hello" << std::endl;
+    std::cout << "std::cout << more_res" << std::endl;
+    bool more_equal_res5 = not_hello.c_str() >= hello;
+    std::cout << "Outcome: " << more_equal_res5 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool less_res = hello.c_str() < not_hello" << std::endl;
+    std::cout << "std::cout << less_res" << std::endl;
+    bool less_res = hello.c_str() < not_hello;
+    std::cout << "Outcome: " << less_res << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool less_equal_res = not_hello.c_str() < hello" << std::endl;
+    std::cout << "std::cout << less_equal_res" << std::endl;
+    bool less_res2 = not_hello.c_str() < hello;
+    std::cout << "Outcome: " << less_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool less_equal_res = not_hello.c_str() <= hello" << std::endl;
+    std::cout << "std::cout << less_equal_res" << std::endl;
+    bool less_equal_res = not_hello.c_str() <= hello;
+    std::cout << "Outcome: " << less_equal_res << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+    std::cout << "bool less_res = hello.c_str() <= not_hello" << std::endl;
+    std::cout << "std::cout << less_res" << std::endl;
+    bool less_equal_res2 = hello.c_str() <= not_hello;
+    std::cout << "Outcome: " << less_equal_res2 << std::endl;
+
+    std::cout << "\n" << std::endl;
+
+
 }
 
 void operators_demonstration_second_c() {
