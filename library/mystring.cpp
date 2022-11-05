@@ -365,7 +365,7 @@ bool operator==(const my_str_t& str1, const my_str_t& str2) { //Konopada Oleksii
     }
     else {
         size_t str_length = str1.size();
-        for (int i = 0; i < str_length; i++) {
+        for (size_t i = 0; i < str_length; i++) {
             if (str1[i] != str2[i]) {
                 return false;
             }
@@ -390,7 +390,7 @@ bool operator>(const my_str_t& str1, const my_str_t& str2) { //Konopada Oleksii
     }
     else {
         size_t str_length = str1.size();
-        for (int i = 0; i < str_length; i++) {
+        for (size_t i = 0; i < str_length; i++) {
             if (str1[i] == str2[i]) {
                 continue;
             }
@@ -479,7 +479,7 @@ bool operator>=(const my_str_t& str1, const char *cstr2) { //Konopada Oleksii
         return false;
     }
     else {
-        for (int i = 0; i < str1.size(); i++) {
+        for (size_t i = 0; i < str1.size(); i++) {
             if (str1[i] == *(cstr2 + i)) {
                 continue;
             }
@@ -557,7 +557,7 @@ bool operator<(const char *cstr1, const my_str_t& str2) { //Konopada Oleksii
     }
     else {
         size_t str_length = str2.size();
-        for (int i = 0; i < str_length; i++) {
+        for (size_t i = 0; i < str_length; i++) {
             if (*(cstr1 + i) == str2[i]) {
                 continue;
             }
